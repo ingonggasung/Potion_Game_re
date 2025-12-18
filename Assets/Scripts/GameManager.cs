@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
     [Header("Mix Button")]
     public GameObject mixButton;
     
-    /// <summary>인벤토리 UI 아이콘</summary>
-    [Header("Inventory Button")]
-    public GameObject InventoryIcon;
+    ///// <summary>인벤토리 UI 아이콘</summary>
+    //[Header("Inventory Button")]
+    //public GameObject InventoryIcon;
 
     /// <summary>현재 드래그 중인 월드 오브젝트</summary>
     private GameObject selectedObject = null;
@@ -65,10 +65,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-        if (InventoryIcon != null)
-        {
-            InventoryIcon.SetActive(false);
-        }
+        //if (InventoryIcon != null)
+        //{
+        //    InventoryIcon.SetActive(false);
+        //}
     }
 
     /// <summary>
@@ -283,22 +283,22 @@ public class GameManager : MonoBehaviour
     /// 인벤토리 버튼이 클릭되었을 때 호출됩니다.
     /// 인벤토리 UI를 토글합니다.
     /// </summary>
-    public void Inventorybtn()
-    {
-        Debug.Log("Inventory button clicked.");
+    //public void Inventorybtn()
+    //{
+    //    Debug.Log("Inventory button clicked.");
 
-        if (InventoryIcon != null)
-        {
-            if (InventoryIcon.activeSelf)
-            {
-                InventoryIcon.SetActive(false);
-            }
-            else
-            {
-                InventoryIcon.SetActive(true);
-            }
-        }
-    }
+    //    if (InventoryIcon != null)
+    //    {
+    //        if (InventoryIcon.activeSelf)
+    //        {
+    //            InventoryIcon.SetActive(false);
+    //        }
+    //        else
+    //        {
+    //            InventoryIcon.SetActive(true);
+    //        }
+    //    }
+    //}
 
     // ===== 인벤토리 드래그 앤 드롭을 위한 추가 메서드 =====
 
