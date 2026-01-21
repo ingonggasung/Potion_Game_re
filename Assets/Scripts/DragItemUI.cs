@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 드래그 중인 아이템을 마우스를 따라 표시하는 UI 클래스
@@ -102,13 +103,16 @@ public class DragItemUI : MonoBehaviour
         Vector2 pos;
         bool success = false;
         
+        // 마우스 위치 가져오기 (Input System 사용)
+        Vector2 mousePos = Mouse.current != null ? Mouse.current.position.ReadValue() : Vector2.zero;
+        
         // Canvas의 Render Mode에 따라 다른 방식으로 처리
         if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
         {
             // Screen Space - Overlay 모드: worldCamera가 null
             success = RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvas.transform as RectTransform,
-                Input.mousePosition,
+                mousePos,
                 null, // Overlay 모드에서는 카메라가 필요 없음
                 out pos
             );
@@ -119,7 +123,7 @@ public class DragItemUI : MonoBehaviour
             Camera cam = canvas.worldCamera != null ? canvas.worldCamera : Camera.main;
             success = RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvas.transform as RectTransform,
-                Input.mousePosition,
+                mousePos,
                 cam,
                 out pos
             );

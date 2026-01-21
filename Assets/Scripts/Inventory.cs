@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 인벤토리 시스템을 관리하는 클래스
@@ -57,7 +58,7 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         // 마우스 버튼을 놓았을 때 드래그 종료 처리
-        if (currentDragItem != null && Input.GetMouseButtonUp(0))
+        if (currentDragItem != null && Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame)
         {
             EndDrag();
         }
